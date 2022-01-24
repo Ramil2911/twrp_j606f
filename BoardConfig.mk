@@ -1,22 +1,15 @@
 #
 # Copyright (C) 2021 The Android Open Source Project
-# Copyright (C) 2021 SebaUbuntu's TWRP device tree generator
-#
-# SPDX-License-Identifier: Apache-2.0
-#
 
 DEVICE_PATH := device/lenovo/twrp_J606F
-
-# For building with minimal manifest
 ALLOW_MISSING_DEPENDENCIES := true
 
-# Architecture
+# CPU
 TARGET_ARCH := arm64
 TARGET_ARCH_VARIANT := armv8-a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := kryo
-
 TARGET_2ND_ARCH := arm
 TARGET_2ND_ARCH_VARIANT := armv8-a
 TARGET_2ND_CPU_ABI := armv8-a
@@ -24,13 +17,14 @@ TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a73
 TARGET_BOARD_SUFFIX := _64
 TARGET_USES_64_BIT_BINDER := true
+TARGET_BOARD_PLATFORM := bengal
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := J606F
 
 # File systems
 BOARD_HAS_LARGE_FILESYSTEM := true
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 100663296
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 100663296 # size of stock recovery partition
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
 BOARD_USERDATAIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
@@ -44,7 +38,7 @@ BOARD_LENOVO_DYNAMIC_PARTITIONS_PARTITION_LIST := \
     system \
     vendor \
 	product
-BOARD_LENOVO_DYNAMIC_PARTITIONS_SIZE := 12884901888
+BOARD_LENOVO_DYNAMIC_PARTITIONS_SIZE := 12884901888 # size of stock dynamic partition
 
 # A/B
 AB_OTA_UPDATER := true
@@ -77,13 +71,7 @@ TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_KERNEL_SOURCE := kernel/lenovo/J606F
 TARGET_KERNEL_CONFIG := J606F_defconfig
 
-# Platform
-TARGET_BOARD_PLATFORM := bengal
-
-# Recovery
-TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
-
-# Hack: prevent anti rollback
+# Prevent anti rollback (just common patch)
 PLATFORM_SECURITY_PATCH := 2099-12-31
 VENDOR_SECURITY_PATCH := 2099-12-31
 PLATFORM_VERSION := 16.1.0
@@ -93,11 +81,12 @@ TW_THEME := portrait_hdpi
 TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
-TW_USE_TOOLBOX := true
+TW_USE_TOOLBOX := true # busybox wont work
 
 # Screen
 DEVICE_RESOLUTION :=  1200x2000
 BOARD_HAS_FLIPPED_SCREEN := true
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 
 # Decryption
 #BOARD_USES_QCOM_FBE_DECRYPTION := true

@@ -5,8 +5,10 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-LOCAL_PATH := $(call my-dir)
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/twrp_J606F.mk
 
-ifeq ($(TARGET_DEVICE),twrp_sJ606F)
-include $(call all-subdir-makefiles,$(LOCAL_PATH))
-endif
+COMMON_LUNCH_CHOICES := \
+    twrp_J606F-user \
+    twrp_J606F-userdebug \
+    twrp_J606F-eng

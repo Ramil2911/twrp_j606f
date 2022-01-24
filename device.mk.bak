@@ -22,9 +22,9 @@ PRODUCT_PACKAGES += \
     bootctrl.bengal \
     qcom_decrypt \
     qcom_decrypt_fbe \
-	libgptutils \
-	libz \
-	libcutils
+#	libgptutils \
+#	libz \
+#	libcutils
 
 #PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 #    bootctrl.bengal \

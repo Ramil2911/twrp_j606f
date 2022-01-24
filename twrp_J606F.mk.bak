@@ -19,7 +19,7 @@ $(call inherit-product, device/lenovo/twrp_J606F/device.mk)
 $(call inherit-product, vendor/twrp/config/common.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := J606F
+PRODUCT_DEVICE := twrp_J606F
 PRODUCT_NAME := twrp_J606F
 PRODUCT_BRAND := Lenovo
 PRODUCT_MODEL := Lenovo TB-J606F
